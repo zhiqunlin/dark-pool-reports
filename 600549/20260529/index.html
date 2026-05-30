@@ -6,43 +6,42 @@
 <title>厦门钨业(600549) · 暗盘资金分析 · 20260529</title>
 <script src="https://cdn.bootcdn.net/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 <style>
+:root{--bg:#0f1923;--card:#162231;--border:#1e3044;--text:#c9d1d9;--muted:#8899aa;--red:#e74c3c;--green:#27ae60;--gold:#f39c12;--blue:#3498db;--purple:#8b5cf6}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,"Microsoft YaHei",sans-serif;background:#0f1923;color:#c9d1d9;line-height:1.6;min-height:100vh}
-.nav{background:#162231;border-bottom:1px solid #1e3044;padding:12px 24px;display:flex;gap:16px;align-items:center;position:sticky;top:0;z-index:10}
-.nav a{color:#8899aa;text-decoration:none;font-size:.9em;padding:4px 12px;border-radius:6px;transition:all .15s}
-.nav a:hover{color:#f0f6fc;background:#1e3044}
-.nav a.active{color:#e74c3c;background:#e74c3c22}
-.container{max-width:1200px;margin:0 auto;padding:24px}
-.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;padding:20px;background:#162231;border:1px solid #1e3044;border-radius:12px}
+body{font-family:-apple-system,"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+.nav{background:var(--card);border-bottom:1px solid var(--border);padding:12px 24px;display:flex;gap:16px;align-items:center;position:sticky;top:0;z-index:10}
+.nav a{color:var(--muted);text-decoration:none;font-size:.9em;padding:4px 12px;border-radius:6px;transition:all .15s}
+.nav a:hover{color:#f0f6fc;background:var(--border)}
+.nav a.active{color:var(--red);background:rgba(231,76,60,.13)}
+.container{max-width:1400px;margin:0 auto;padding:24px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;padding:20px;background:var(--card);border:1px solid var(--border);border-radius:12px}
 .header h1{font-size:1.8em;color:#f0f6fc}
-.header .price{font-size:2.2em;font-weight:700;color:#e74c3c}
+.header .price{font-size:2.2em;font-weight:700;color:var(--red)}
+.price-box{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:20px}
+.price-item{text-align:center}
+.price-label{font-size:.75em;color:var(--muted);margin-bottom:4px}
+.price-value{font-size:1.4em;font-weight:700}
+.price-sub{font-size:.8em;color:#667788}
+.red{color:var(--red)}.green{color:var(--green)}.gold{color:var(--gold)}.blue{color:var(--blue)}
 .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:20px}
-.card{background:#162231;border:1px solid #1e3044;border-radius:10px;padding:16px;text-align:center}
-.card-title{font-size:.8em;color:#8899aa;margin-bottom:6px}
-.card-value{font-size:1.4em;font-weight:700}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+.card-title{font-size:.8em;color:var(--muted);margin-bottom:6px}
+.card-value{font-size:1.3em;font-weight:700}
 .card-sub{font-size:.75em;color:#667788;margin-top:4px}
-.chart-container{background:#162231;border:1px solid #1e3044;border-radius:12px;padding:20px;margin-bottom:20px}
+.chart-container{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
 .chart-container h3{margin-bottom:12px;color:#f0f6fc}
 .chart-container canvas{max-height:350px}
 table{width:100%;border-collapse:collapse;font-size:.85em;margin:12px 0}
-th,td{padding:8px 12px;text-align:left;border:1px solid #1e3044}
-th{background:#1e3044;color:#f0f6fc}
-tr:nth-child(even){background:#162231}
-.score-badge{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;font-size:1.4em;font-weight:700}
-.score-a{background:rgba(231,76,60,.2);color:#e74c3c;border:2px solid #e74c3c}
-.score-b{background:rgba(243,156,18,.2);color:#f39c12;border:2px solid #f39c12}
-.score-c{background:rgba(52,152,219,.2);color:#3498db;border:2px solid #3498db}
-.score-d{background:rgba(149,165,166,.2);color:#95a5a6;border:2px solid #95a5a6}
-.conclusion-box{background:linear-gradient(135deg,#162231,#0f1923);border:2px solid #f39c12;border-radius:12px;padding:24px;margin-top:20px}
-.conclusion-box h2{margin-top:0;color:#f39c12}
-.red{color:#e74c3c}
-.green{color:#27ae60}
-.gold{color:#f39c12}
-.blue{color:#3498db}
-.footer{text-align:center;padding:32px 20px;color:#556677;font-size:.8em;border-top:1px solid #1e3044;margin-top:32px}
-.footer a{color:#8899aa;text-decoration:none}
+th,td{padding:8px 12px;text-align:right;border:1px solid var(--border)}
+th{background:var(--border);color:#f0f6fc;font-weight:500}
+td:first-child,th:first-child{text-align:left}
+tr:nth-child(even){background:rgba(30,48,68,.4)}
+.conclusion-box{background:linear-gradient(135deg,var(--card),var(--bg));border:2px solid var(--gold);border-radius:12px;padding:24px;margin-top:20px}
+.conclusion-box h2{margin-top:0;color:var(--gold)}
+.footer{text-align:center;padding:32px 20px;color:#556677;font-size:.8em;border-top:1px solid var(--border);margin-top:32px}
+.footer a{color:var(--muted);text-decoration:none}
 .footer a:hover{color:#f0f6fc}
-@media(max-width:768px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){.cards,.price-box{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
@@ -53,65 +52,198 @@ tr:nth-child(even){background:#162231}
 <a href="report.html">📄 完整报告</a>
 </div>
 <div class="container">
+
 <div class="header">
 <div>
-<h1>厦门钨业 <span style="color:#667788;font-size:.7em;">600549 · SH</span></h1>
-<div style="color:#8899aa;font-size:.85em;">暗盘资金分析报告 · 2026年05月29日</div>
+<h1>厦门钨业 <span style="color:var(--muted);font-size:.7em;">600549 · SH</span></h1>
+<div style="color:var(--muted);font-size:.85em;">暗盘资金分析报告 · 2026年05月29日</div>
 </div>
 <div style="text-align:right">
 <div style="font-size:.8em;color:#667788">收盘价</div>
 <div class="price">¥54.37</div>
+<div style="font-size:1em;color:#e74c3c;">+3.76% ↑</div>
 </div>
+</div>
+
+<div class="price-box">
+<div class="price-item"><div class="price-label">开盘价</div><div class="price-value">¥53.21</div></div>
+<div class="price-item"><div class="price-label">最高价</div><div class="price-value red">¥56.17</div><div class="price-sub">涨停 ¥N/A</div></div>
+<div class="price-item"><div class="price-label">最低价</div><div class="price-value green">¥51.30</div><div class="price-sub">跌停 ¥N/A</div></div>
+<div class="price-item"><div class="price-label">成交额 / 换手率</div><div class="price-value" style="font-size:1.1em;">¥¥53.43亿</div><div class="price-sub">换手 6.30% · 0.0万手</div></div>
 </div>
 
 <div class="cards">
 <div class="card"><div class="card-title">暗盘等级</div><div class="card-value gold">B级</div><div class="card-sub">明显暗盘</div></div>
 <div class="card"><div class="card-title">综合评分</div><div class="card-value gold">79/100</div><div class="card-sub">六维加权评估</div></div>
-<div class="card"><div class="card-title">超大单信号</div><div class="card-value red">暗盘吸筹（超大单占比83.8%）</div><div class="card-sub">暗盘吸筹信号显著</div></div>
-<div class="card"><div class="card-title">风险警示</div><div class="card-value" style="font-size:1em">控盘比下降2.6pp / 融券+13.6%</div></div>
+<div class="card"><div class="card-title">超大单信号</div><div class="card-value red">顶级资金主导（超大单占比83.8%），强暗盘吸筹信号…</div><div class="card-sub">暗盘吸筹信号显著</div></div>
+<div class="card"><div class="card-title">风险警示</div><div class="card-value" style="font-size:.9em">控盘比下降2.6pp，筹码分散</div></div>
+</div>
+
+<div class="chart-container">
+<h3>📊 近10个交易日主力资金流向趋势（万元）</h3>
+<canvas id="flowChart"></canvas>
+</div>
+
+<div class="chart-container">
+<h3>📊 融资余额与融资买入额趋势</h3>
+<canvas id="marginChart"></canvas>
+</div>
+
+<div class="chart-container">
+<h3>📋 每日资金流向明细（万元）</h3>
+<table>
+<thead><tr><th>日期</th><th>小单净额</th><th>中单净额</th><th>大单净额</th><th>超大单净额</th><th>主力净额</th><th>主力占比</th><th>控盘比</th></tr></thead>
+<tbody>
+<tr><td>18</td><td style="color:var(--red)">+85</td><td style="color:var(--green)">-805</td><td style="color:var(--green)">-2697</td><td style="color:var(--red)">+5881</td><td style="color:var(--red)">+3184</td><td>0.00%</td><td>47.2%</td></tr>
+<tr><td>19</td><td style="color:var(--red)">+156</td><td style="color:var(--green)">-209</td><td style="color:var(--green)">-999</td><td style="color:var(--green)">-13033</td><td style="color:var(--green)">-14031</td><td>-0.00%</td><td>47.5%</td></tr>
+<tr><td>20</td><td style="color:var(--green)">-13</td><td style="color:var(--green)">-2985</td><td style="color:var(--green)">-2982</td><td style="color:var(--red)">+22709</td><td style="color:var(--red)">+19727</td><td>0.00%</td><td>47.2%</td></tr>
+<tr><td>21</td><td style="color:var(--red)">+105</td><td style="color:var(--red)">+1890</td><td style="color:var(--red)">+4140</td><td style="color:var(--green)">-5276</td><td style="color:var(--green)">-1136</td><td>-0.00%</td><td>47.1%</td></tr>
+<tr><td>22</td><td style="color:var(--red)">+153</td><td style="color:var(--red)">+804</td><td style="color:var(--green)">-1634</td><td style="color:var(--red)">+26800</td><td style="color:var(--red)">+25165</td><td>0.00%</td><td>46.0%</td></tr>
+<tr><td>25</td><td style="color:var(--red)">+150</td><td style="color:var(--red)">+736</td><td style="color:var(--green)">-541</td><td style="color:var(--green)">-16127</td><td style="color:var(--green)">-16668</td><td>-0.00%</td><td>45.8%</td></tr>
+<tr><td>26</td><td style="color:var(--green)">-10</td><td style="color:var(--green)">-2089</td><td style="color:var(--green)">-2046</td><td style="color:var(--red)">+35390</td><td style="color:var(--red)">+33344</td><td>0.00%</td><td>45.3%</td></tr>
+<tr><td>27</td><td style="color:var(--red)">+159</td><td style="color:var(--red)">+1130</td><td style="color:var(--green)">-3743</td><td style="color:var(--green)">-40330</td><td style="color:var(--green)">-44073</td><td>-0.00%</td><td>45.4%</td></tr>
+<tr><td>28</td><td style="color:var(--red)">+56</td><td style="color:var(--green)">-268</td><td style="color:var(--red)">+385</td><td style="color:var(--red)">+10808</td><td style="color:var(--red)">+11193</td><td>0.00%</td><td>45.4%</td></tr>
+<tr style="background:rgba(231,76,60,.08);font-weight:700"><td>29</td><td style="color:var(--green)">-23</td><td style="color:var(--red)">+378</td><td style="color:var(--green)">-5989</td><td style="color:var(--red)">+56454</td><td style="color:var(--red)">+50466</td><td>0.00%</td><td>44.6%</td></tr>
+
+</tbody>
+</table>
+</div>
+
+<div class="chart-container">
+<h3>📋 融资融券明细</h3>
+<table>
+<thead><tr><th>日期</th><th>融资余额(亿)</th><th>融资买入额(亿)</th><th>融资偿还额(亿)</th><th>融券余量(万股)</th><th>融券余额(万)</th><th>两融余额(亿)</th></tr></thead>
+<tbody>
+<tr><td>18</td><td>30.36</td><td>1.26</td><td>2.82</td><td>41.11</td><td>2198</td><td>30.58</td></tr>
+<tr><td>19</td><td>29.75</td><td>1.92</td><td>2.53</td><td>40.71</td><td>2079</td><td>29.96</td></tr>
+<tr><td>20</td><td>30.09</td><td>3.02</td><td>2.68</td><td>39.9</td><td>2031</td><td>30.29</td></tr>
+<tr><td>21</td><td>30.05</td><td>2.19</td><td>2.23</td><td>40.53</td><td>2033</td><td>30.26</td></tr>
+<tr><td>22</td><td>30.02</td><td>2.00</td><td>2.04</td><td>40.0</td><td>2082</td><td>30.22</td></tr>
+<tr><td>25</td><td>29.53</td><td>2.06</td><td>2.55</td><td>40.38</td><td>2096</td><td>29.74</td></tr>
+<tr><td>26</td><td>29.75</td><td>2.92</td><td>2.70</td><td>39.76</td><td>2145</td><td>29.97</td></tr>
+<tr><td>27</td><td>29.49</td><td>2.87</td><td>3.14</td><td>44.97</td><td>2319</td><td>29.72</td></tr>
+<tr><td>28</td><td>29.13</td><td>2.29</td><td>2.64</td><td>44.05</td><td>2308</td><td>29.36</td></tr>
+<tr style="background:rgba(231,76,60,.08);font-weight:700"><td>29</td><td>28.97</td><td>4.29</td><td>4.42</td><td>46.68</td><td>2538</td><td>29.23</td></tr>
+
+</tbody>
+</table>
+</div>
+
+<div class="chart-container">
+<h3>📊 机构持股变化趋势</h3>
+<canvas id="instChart"></canvas>
 </div>
 
 <div class="chart-container">
 <h3>📊 六维暗盘评分</h3>
-<canvas id="radarChart"></canvas>
+<canvas id="scoreChart"></canvas>
 </div>
 
 <div class="conclusion-box">
-<h2>🎯 综合结论</h2>
-<div style="margin-top:12px;color:#c9d1d9;line-height:1.8">
-B级明显暗盘，79/100分。超大单主导(83.8%)，基金换仓接盘，但控盘比下降和融券增加需警惕。
+<h2>🎯 综合研判</h2>
+<div style="margin-top:12px;color:var(--text);line-height:1.8">
+B级明显暗盘，79/100分。顶级资金主导（超大单占比83.8%），强暗盘吸筹信号。基金减仓-51.1%，但非基金机构在接盘（总机构仅-11.2%），暗盘接盘信号。主要风险：控盘比下降2.6pp，筹码分散。
 </div>
 </div>
 
 <div class="footer">
-<p>Dark Pool Analysis v2.0 · Powered by investoday-api · <a href="report.html">📄 完整 MD 报告</a></p>
+<p>Dark Pool Analysis v2.2 · Powered by investoday-api · <a href="report.html">📄 完整 MD 报告</a></p>
 <p>⚠️ 本报告不构成投资建议 · 市场有风险 投资须谨慎</p>
 </div>
 </div>
+
 <script>
-const ctx = document.getElementById('radarChart').getContext('2d');
-new Chart(ctx, {
-type: 'bar',
-data: {
-labels: ['D1-超大单背离','D2-资金价格','D3-融资余额','D4-大宗龙虎','D5-机构持股','D6-控盘比'],
-datasets: [{
-label: '得分',
-data: [25,12,7,10,20,5],
-backgroundColor: ['#e74c3c','#f39c12','#3498db','#2ecc71','#9b59b6','#1abc9c'],
-borderRadius: 4,
-}]
+// === Chart 1: 资金流向趋势 ===
+(function(){
+const ctx=document.getElementById('flowChart').getContext('2d');
+new Chart(ctx,{
+type:'bar',
+data:{
+labels:["18", "19", "20", "21", "22", "25", "26", "27", "28", "29"],
+datasets:[
+{label:'超大单净流入',data:[5880, -13032, 22708, -5276, 26799, -16127, 35390, -40330, 10807, 56454],backgroundColor:'rgba(231,76,60,.7)',borderColor:'#e74c3c',borderWidth:1},
+{label:'大单净流入',data:[-2696, -998, -2981, 4139, -1634, -541, -2046, -3743, 384, -5988],backgroundColor:'rgba(52,152,219,.7)',borderColor:'#3498db',borderWidth:1},
+{label:'主力净流入（合计）',data:[3184, -14031, 19727, -1136, 25165, -16668, 33344, -44073, 11192, 50465],type:'line',borderColor:'#f39c12',backgroundColor:'rgba(243,156,18,.1)',borderWidth:2.5,pointRadius:5,pointBackgroundColor:'#f39c12',tension:.3,fill:false}
+]
 },
-options: {
-indexAxis: 'y',
-responsive: true,
-maintainAspectRatio: true,
-plugins: { legend: { display: false } },
-scales: {
-x: { max: 25, ticks: { color: '#8899aa' }, grid: { color: 'rgba(136,153,170,.1)' } },
-y: { ticks: { color: '#c9d1d9', font: { size: 11 } }, grid: { display: false } }
+options:{
+responsive:true,maintainAspectRatio:true,
+plugins:{legend:{labels:{color:'#8899aa',usePointStyle:true,padding:20}},tooltip:{callbacks:{label:function(c){return c.dataset.label+': '+(c.raw>=0?'+':'')+c.raw.toLocaleString()+'万'}}}},
+scales:{
+x:{ticks:{color:'#8899aa'},grid:{color:'rgba(136,153,170,.1)'}},
+y:{ticks:{color:'#8899aa',callback:function(v){return (v/10000).toFixed(1)+'亿'}},grid:{color:'rgba(136,153,170,.1)'}}
 }
 }
 });
+})();
+
+// === Chart 2: 融资融券趋势 ===
+(function(){
+const ctx=document.getElementById('marginChart').getContext('2d');
+new Chart(ctx,{
+type:'bar',
+data:{
+labels:["18", "19", "20", "21", "22", "25", "26", "27", "28", "29"],
+datasets:[
+{label:'融资余额（亿元）',data:[30.36, 29.75, 30.09, 30.05, 30.02, 29.53, 29.75, 29.49, 29.13, 28.97],type:'line',borderColor:'#8b5cf6',backgroundColor:'rgba(139,92,246,.1)',borderWidth:2.5,pointRadius:4,tension:.3,yAxisID:'y',fill:false},
+{label:'融资买入额（亿元）',data:[1.26, 1.92, 3.02, 2.19, 2.0, 2.06, 2.92, 2.87, 2.29, 4.29],backgroundColor:'rgba(231,76,60,.6)',borderColor:'#e74c3c',borderWidth:1,yAxisID:'y1'}
+]
+},
+options:{
+responsive:true,maintainAspectRatio:true,
+plugins:{legend:{labels:{color:'#8899aa',usePointStyle:true,padding:20}}},
+scales:{
+x:{ticks:{color:'#8899aa'},grid:{color:'rgba(136,153,170,.1)'}},
+y:{type:'linear',position:'left',ticks:{color:'#8b5cf6'},grid:{color:'rgba(136,153,170,.1)'},title:{display:true,text:'融资余额（亿元）',color:'#8b5cf6'},min:26},
+y1:{type:'linear',position:'right',ticks:{color:'#e74c3c'},grid:{display:false},title:{display:true,text:'融资买入额（亿元）',color:'#e74c3c'},min:0}
+}
+}
+});
+})();
+
+// === Chart 3: 机构持股 ===
+(function(){
+const ctx=document.getElementById('instChart').getContext('2d');
+new Chart(ctx,{
+type:'bar',
+data:{
+labels:["2025Q2", "2025Q3", "2025Q4", "2026Q1"],
+datasets:[
+{label:'机构持股占总股本比例',data:[55.1864, 51.1326, 61.3392, 54.4814],type:'line',borderColor:'#f39c12',backgroundColor:'rgba(243,156,18,.1)',borderWidth:2.5,pointRadius:5,tension:.3,fill:true,yAxisID:'y'},
+{label:'基金持股占总股本比例',data:[5.1321, 3.6267, 13.7295, 6.7128],backgroundColor:'rgba(52,152,219,.7)',borderColor:'#3498db',borderWidth:1,yAxisID:'y1'}
+]
+},
+options:{
+responsive:true,maintainAspectRatio:true,
+plugins:{legend:{labels:{color:'#8899aa',usePointStyle:true,padding:20}}},
+scales:{
+x:{ticks:{color:'#8899aa'},grid:{color:'rgba(136,153,170,.1)'}},
+y:{type:'linear',position:'left',ticks:{color:'#f39c12',callback:function(v){return v+'%'}},grid:{color:'rgba(136,153,170,.1)'},title:{display:true,text:'机构持股占比',color:'#f39c12'},min:46,max:66},
+y1:{type:'linear',position:'right',ticks:{color:'#3498db',callback:function(v){return v+'%'}},grid:{display:false},title:{display:true,text:'基金持股占比',color:'#3498db'},min:0,max:18}
+}
+}
+});
+})();
+
+// === Chart 4: 六维评分 ===
+(function(){
+const ctx=document.getElementById('scoreChart').getContext('2d');
+new Chart(ctx,{
+type:'bar',
+data:{
+labels:['D1-超大单背离','D2-资金价格','D3-融资余额','D4-大宗龙虎','D5-机构持股','D6-控盘比'],
+datasets:[{label:'得分',data:[25,12,7,10,20,5],backgroundColor:['#e74c3c','#f39c12','#3498db','#27ae60','#8b5cf6','#1abc9c'],borderRadius:4}]
+},
+options:{
+indexAxis:'y',responsive:true,maintainAspectRatio:true,
+plugins:{legend:{display:false}},
+scales:{
+x:{max:25,ticks:{color:'#8899aa'},grid:{color:'rgba(136,153,170,.1)'}},
+y:{ticks:{color:'var(--text)',font:{size:11}},grid:{display:false}}
+}
+}
+});
+})();
 </script>
 </body>
 </html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dark Pool Reports · 暗盘资金分析</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"Microsoft YaHei",sans-serif;background:#0f1923;color:#c9d1d9;min-height:100vh}
+h1{font-size:1.5em;padding:24px;color:#f0f6fc}
+.reports{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;padding:0 24px}
+.report{display:block;background:#162231;border:1px solid #1e3044;border-radius:10px;padding:16px;text-decoration:none;color:#c9d1d9;transition:all .15s}
+.report:hover{background:#1e3044;border-color:#2a4a6a}
+.head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px}
+.code{font-size:.8em;color:#8899aa}
+.name{font-size:1.1em;font-weight:600;color:#f0f6fc}
+.status{font-size:.85em;font-weight:600;padding:2px 8px;border-radius:4px}
+.kpi-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
+.kpi-item{background:#0f1923;border-radius:6px;padding:8px}
+.kpi-label{font-size:.7em;color:#667788}
+.kpi-value{font-size:.9em;font-weight:600;margin-top:2px}
+.meta{font-size:.75em;color:#556677;margin-top:8px}
+.alerts{font-size:.75em;color:#f39c12;margin-top:4px}
+.link-btn{font-size:.75em;color:#3498db;margin-top:8px}
+.footer{text-align:center;padding:32px 20px;color:#556677;font-size:.8em;border-top:1px solid #1e3044;margin-top:32px}
+</style>
+</head>
+<body>
+<h1>🔍 暗盘资金分析报告</h1>
+<div class="reports">
+
+<!-- CARD:600549 -->
+<a href="600549/" class="report">
+<div class="head">
+<div>
+<div class="code">600549.SH</div>
+<div class="name">厦门钨业</div>
+</div>
+<span class="status" style="color:#f39c12">B级 · 明显暗盘</span>
+</div>
+<div class="kpi-grid">
+<div class="kpi-item"><div class="kpi-label">综合评分</div><div class="kpi-value" style="color:#f39c12">79/100</div></div>
+<div class="kpi-item"><div class="kpi-label">超大单信号</div><div class="kpi-value">暗盘吸筹（超大单占比83.8%）</div></div>
+</div>
+<div class="meta">
+<span>最近分析: 2026-05-29</span>
+</div>
+<div class="alerts">⚠ 控盘比下降2.6pp / 融券+13.6%</div>
+<div class="link-btn">查看历史分析时间线</div>
+</a>
+<!-- /CARD:600549 -->
+</div>
+<div class="footer">
+<p>Dark Pool Analysis · Powered by investoday-api · ⚠ 不构成投资建议</p>
+</div>
+</body>
+</html>

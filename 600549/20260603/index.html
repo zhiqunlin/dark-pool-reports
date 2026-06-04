@@ -87,7 +87,7 @@ tr:nth-child(even){background:rgba(30,48,68,.4)}
 
 <div class="cards">
 <div class="card"><div class="card-title">暗盘等级</div><div class="card-value gold">A级</div><div class="card-sub">强力暗盘</div></div>
-<div class="card"><div class="card-title">综合评分</div><div class="card-value gold">84/100</div><div class="card-sub">六维加权评估</div></div>
+<div class="card"><div class="card-title">综合评分</div><div class="card-value gold">82/100</div><div class="card-sub">六维加权评估</div></div>
 <div class="card"><div class="card-title">超大单信号</div><div class="card-value red">顶级资金主导（超大单占比89.0%），强暗盘吸筹信号…</div><div class="card-sub">暗盘吸筹信号显著</div></div>
 <div class="card"><div class="card-title">风险警示</div><div class="card-value" style="font-size:.9em">控盘比温和上升1.8pp</div></div>
 </div>
@@ -189,7 +189,7 @@ tr:nth-child(even){background:rgba(30,48,68,.4)}
 <div class="score score-bull">A+</div>
 <div>
 <div style="font-size:1.2em;font-weight:700">暗盘活跃度评级：A+（偏多，存在强力暗盘资金迹象）</div>
-<div style="color:var(--muted);font-size:.85em">综合评分 84/100 · 超大单主导 + 基金换仓接盘</div>
+<div style="color:var(--muted);font-size:.85em">综合评分 82/100 · 超大单主导 + 基金换仓接盘</div>
 </div>
 </div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
@@ -273,7 +273,7 @@ y1:{type:"linear",position:"right",ticks:{color:"#3498db",callback:function(v){r
 const ctx=document.getElementById("scoreChart").getContext("2d");
 new Chart(ctx,{type:"bar",
 data:{labels:["D1-超大单背离","D2-资金价格","D3-融资余额","D4-大宗龙虎","D5-机构持股","D6-控盘比"],
-datasets:[{label:"得分",data:[25,12,9,6,20,12],backgroundColor:["#e74c3c","#f39c12","#3498db","#27ae60","#8b5cf6","#1abc9c"],borderRadius:4}]},
+datasets:[{label:"得分",data:[25,12,9,7,17,12],backgroundColor:["#e74c3c","#f39c12","#3498db","#27ae60","#8b5cf6","#1abc9c"],borderRadius:4}]},
 options:{indexAxis:"y",responsive:true,maintainAspectRatio:true,
 plugins:{legend:{display:false}},
 scales:{x:{max:25,ticks:{color:"#8899aa"},grid:{color:"rgba(136,153,170,.1)"}},y:{ticks:{color:"#c9d1d9",font:{size:11}},grid:{display:false}}}
